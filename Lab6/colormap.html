@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#list1 {
+  height:100px; width:30%;
+  overflow:hidden; 
+  overflow-y:scroll;
+}
+
+#list2 {
+  height:100px; width:30%;
+  overflow:hidden;
+  overflow-y:scroll;
+}
+
+.body {
+  height:100%; width:100%;
+}
+
+.main {
+  height:100%; width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left {
+  height:100px; width:50%;
+  position:relative;
+  float:left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right {
+  height:100px; width:50%;
+  position:relative;
+  float:left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.litem {
+  cursor: pointer;
+}
+</style>
+<script>
+	function requestColors() {
+		var colorData;
+
+		var jreq = new XMLHttpRequest();
+		jreq.onload = reqListener;
+		jreq.open("get", "ColorNameMap.json", true);
+		jreq.send();
+
+		function getReq(e) {
+			colorData = JSON.parse(this.responseText);
+			
+			var i;
+
+			for (i = 0; i < colorData.length; i++)
+			{
+				var li = document.createElement("li");
+				var cdiv = document.createElement("div");
+				li.className = "cdata";
+				cdiv.className = "cdata";
+				cdiv.id = "list1" + i;
+				li.id = "list1" + i;
+				var d = document.createTextNode(colorData[i].color);
+				cdiv.style.backgroundColor = colorData[i].color;
+				cdiv.style.borderRadius = "100px / 50px";
+				li.appendChild(d);
+				li.appendChild(cdiv);
+				document.getElementById("list1").appendChild(li);
+
+			}
+
+			for (i = 0; i < colorData.length; i++)
+			{
+				var li = document.createElement("li");
+				li.className = "cdata";
+				li.id = "list2" + i;
+				var d = document.createTextNode(colorData[i].value);
+				li.appendChild(d);
+				document.getElementById("list2").appendChild(li);
+
+			}
+		}
+	}
+	
+	window.onload = requestColors;
+</script>
+</head>
+<body>
+<div class="main">
+	<div class="left">
+		<ul id="list1">
+		</ul>
+	</div>
+
+	<div class="right">
+		<ul id="list2">
+		</ul>
+	</div>
+</div>
+</body>
+</html>
