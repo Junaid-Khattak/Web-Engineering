@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-color:#FFFFFF;
+}
+#widget{
+    width: 30%;
+    height: 60%;
+    border: 3px solid #DDD;
+	float:left;
+	position:absolute;
+	top: 150px;
+	left: 450px; 
+	border-radius:200px;
+	font: "Comic Sans MS", cursive;
+	font-size:18px;
+	text-align:center;
+	background-color:#6CC;
+}

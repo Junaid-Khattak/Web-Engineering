@@ -1,0 +1,96 @@
+*[class*="fontawesome-"]:before {
+    font-family: 'FontAwesome', serif;
+}
+
+body {
+    background: #f9f9f9;
+    color: #0e171c;
+    font: 300 100%/1.5em , serif;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+table {
+    border-spacing: 2;
+    width: 100%;
+}
+
+.calendar-container {
+    height: 50%;
+    left: 50%;
+    margin: -255px 0 0 -245px;
+    position: absolute;
+    top: 45%;
+    width: 510px;
+}
+
+.calendar {
+    text-align: center;
+}
+
+.calendar header {
+    position: relative;
+}
+
+.calendar h2 {
+    text-transform: uppercase;
+}
+
+.calendar thead {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.calendar tbody {
+    color: #7c8a95;
+}
+
+.calendar td {
+    border: 2px solid transparent;
+    border-radius: 15%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+    padding: 2px;
+}
+
+.current-day {
+    background: #666;
+    color: #f9f9f9;
+}
+
+.btn-prev,
+.btn-next {
+	border: 2px solid #cbd1d2;
+	border-radius: 15%;
+	color: #cbd1d2;
+	height: 30px;
+	font-size: 30px;
+	line-height: 28px;
+	margin: -16px;
+	position: absolute;
+	top: 50%;
+	width: 30px;
+}
+
+.btn-prev:hover,
+.btn-next:hover {
+    background: #cbd1d2;
+    color: #f9f9f9;
+}
+
+.btn-prev {
+    left: 30px;
+}
+
+.btn-next {
+    right: 35px;
+}
+
+
+
+

@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-color:#9C6;
+}
+#container{
+	position:fixed;
+	border:3px solid #CCC;
+	text-align:center;
+	left: 35%;
+	top: 10%;
+	font-size:50px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#9B8480;
+}
+.widget{
+	display:inline-block;
+	position:fixed;
+    width: 12%;
+    height: 14%;
+    margin: 10px;
+    border: 3px solid #999;
+	float:left;
+	position:absolute;
+	top: 200px; 
+	border-radius:100px 55px 5px 55px;
+	font: "Comic Sans MS", cursive;
+	font-size:24px;
+	text-align:center;
+	background-color:#666;
+	color:#FFF;
+	word-wrap:break-word;
+}
+#clock{
+	left:20%;
+}
+#weather{
+	left:40%;
+}
+#calendar{
+	left:60%;
+}

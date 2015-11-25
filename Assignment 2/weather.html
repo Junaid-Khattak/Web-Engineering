@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/weather.css">
+</head>
+
+<body>
+	<div id='widget' ng-app="weather_widget" ng-controller="weather_controller">
+        <p ng-bind='Location'></p>
+        <span> 
+        	<p ng-bind-html='temp'></p>
+        	<br /><p ng-bind='wind'></p>
+        	<br /> <p ng-bind='hum'></p>
+        	<br /><p ng-bind='pres'></p>
+        	<br /><p ng-bind='visib'></p>
+        </span>
+    </div>
+	<script>
+		var w_widget=angular.module("weather_widget",[]);
+		w_widget.controller('weather_controller',function($scope,$http,$sce){
+		
+		$http.get('http://ipinfo.io/json').
+     		success(function(data) {
+       			$scope.Location = data.city+" , "+data.country;
+	   			city=data.city;
+	   			country=data.country;
+	   			$http.get('http://api.openweathermap.org/data/2.5/weather?q='+					city+','+country+'&lang=en&appid=2de143494c0b295cca9337e1e96b00e0').
+	   				success(function(data){
+		   				weather=data.main;
+		   				alert(weather.temp);
+		   				var temp=weather.temp-273.15;
+		   				var pres=weather.pressure/33.864;
+						$scope.temp=$sce.trustAsHtml('Temp : '+Math.round(temp)+' &#8451 , '+data.weather[0].main);
+		   				$scope.wind='Wind : '+data.wind.speed+'mph ';
+		   				$scope.hum='Humidity : '+weather.humidity+'%';
+		   				$scope.pres='Pressure : '+Math.round(pres)+'in';
+	   					});
+				});
+		});
+	</script>
+    
+    
+
+</body>
+</html>
